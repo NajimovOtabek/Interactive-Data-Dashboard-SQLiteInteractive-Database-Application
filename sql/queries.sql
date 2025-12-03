@@ -47,3 +47,47 @@ SELECT
     SUM(DailyTotal) OVER (ORDER BY OrderDate) as CumulativeRevenue
 FROM DailySales
 ORDER BY OrderDate;
+
+-- 4. Dashboard: Key Performance Indicators (Dynamic Filters)
+SELECT 
+    COUNT(DISTINCT o.OrderID) as TotalOrders,
+    SUM(oi.Quantity * oi.UnitPrice) as TotalRevenue,
+    AVG(oi.Quantity * oi.UnitPrice) as AvgOrderValue
+FROM Orders o
+JOIN OrderItems oi ON o.OrderID = oi.OrderID
+JOIN Products p ON oi.ProductID = p.ProductID
+JOIN Customers c ON o.CustomerID = c.CustomerID
+WHERE c.Region = ? AND p.Category = ?; -- Placeholders for filters
+
+-- 5. Dashboard: Filtered Daily Trend
+SELECT o.OrderDate, SUM(oi.Quantity * oi.UnitPrice) as Revenue
+FROM Orders o
+JOIN OrderItems oi ON o.OrderID = oi.OrderID
+JOIN Products p ON oi.ProductID = p.ProductID
+JOIN Customers c ON o.CustomerID = c.CustomerID
+WHERE c.Region = ? AND p.Category = ?
+GROUP BY o.OrderDate 
+ORDER BY o.OrderDate;
+
+-- 6. Dashboard: Top 10 Products (Filtered)
+SELECT p.ProductName, SUM(oi.Quantity) as UnitsSold, SUM(oi.Quantity * oi.UnitPrice) as Revenue
+FROM OrderItems oi
+JOIN Products p ON oi.ProductID = p.ProductID
+JOIN Orders o ON oi.OrderID = o.OrderID
+JOIN Customers c ON o.CustomerID = c.CustomerID
+WHERE c.Region = ? AND p.Category = ?
+GROUP BY p.ProductName 
+ORDER BY Revenue DESC 
+LIMIT 10;
+
+-- 7. Dashboard: Sales by Day of Week
+SELECT 
+    strftime('%w', o.OrderDate) as DayIndex,
+    SUM(oi.Quantity * oi.UnitPrice) as Revenue
+FROM Orders o
+JOIN OrderItems oi ON o.OrderID = oi.OrderID
+JOIN Products p ON oi.ProductID = p.ProductID
+JOIN Customers c ON o.CustomerID = c.CustomerID
+WHERE c.Region = ? AND p.Category = ?
+GROUP BY DayIndex 
+ORDER BY DayIndex;

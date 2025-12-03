@@ -72,14 +72,19 @@ The system is built on a robust SQLite schema:
     - **Ranking**: Identifies top-spending customers per region.
     - **Moving Averages**: Calculates 7-day sales trends.
     - **Aggregations**: Summarizes revenue by category.
-- **Interactive Visualization**:
-    - Filter sales data by **Region** and **Category**.
-    - View dynamic **Line Charts** (Revenue Trends) and **Bar Charts** (Top Products).
+- **Professional Interactive Dashboard**:
+    - **Powered by Plotly**: High-quality, interactive visualizations.
+    - **KPI Cards**: Instant view of Total Revenue, Total Orders, and Avg Order Value.
+    - **Dynamic Charts**:
+        - Daily Revenue Trend (Zoomable Line Chart).
+        - Revenue by Category (Donut Chart).
+        - Top 10 Products (Bar Chart).
+        - Sales by Day of Week (Bar Chart).
+    - **Filtering**: Real-time filtering by Region and Category.
 
 ## 🛠️ Technologies
 - **Python 3.8+**
 - **SQLite3**
 - **Pandas & NumPy**
-- **Matplotlib & Seaborn**
-- **Ipywidgets**
+- **Plotly & Ipywidgets**
 - **Faker**
