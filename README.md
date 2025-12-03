@@ -1,6 +1,6 @@
 # E-Commerce Inventory & Sales Intelligence Dashboard
 
-![Dashboard Preview](assets/dashboard_preview.png)
+![Dashboard Preview](assets/output.png)
 
 A comprehensive interactive database application demonstrating advanced SQL analysis, batch data processing, and dynamic visualization using Python and SQLite.
 
@@ -12,7 +12,7 @@ This project simulates a mid-sized online retail store's database system. It han
 4.  **Interactive Dashboard**: A user-friendly interface to explore sales trends and product performance.
 
 ### System Architecture
-![Architecture Diagram](assets/architecture_diagram.png)
+![Architecture Diagram](assets/architecture_diagram.jpg)
 
 ## 🗂️ Repository Structure
 ```
@@ -47,11 +47,21 @@ The system is built on a robust SQLite schema:
 
 ### Option 2: Local Execution
 1.  Clone the repository.
-2.  Install dependencies:
+2.  **Create and Activate Virtual Environment** (Recommended):
+    ```bash
+    # Create virtual environment
+    python3 -m venv venv
+
+    # Activate it (Mac/Linux)
+    source venv/bin/activate
+    # Activate it (Windows)
+    # venv\Scripts\activate
+    ```
+3.  Install dependencies:
     ```bash
     pip install -r requirements.txt
     ```
-3.  Run the notebook using Jupyter Lab or Jupyter Notebook:
+4.  Run the notebook using Jupyter Lab or Jupyter Notebook:
     ```bash
     jupyter notebook notebooks/interactive_dashboard.ipynb
     ```
