@@ -66,6 +66,18 @@ The system is built on a robust SQLite schema:
     jupyter notebook notebooks/interactive_dashboard.ipynb
     ```
 
+### Option 3: Professional Streamlit Dashboard (Recommended)
+For the best interactive experience, run the standalone web application:
+1.  Ensure dependencies are installed:
+    ```bash
+    pip install -r requirements.txt
+    ```
+2.  Launch the dashboard:
+    ```bash
+    streamlit run streamlit_app.py
+    ```
+3.  The dashboard will open automatically in your browser at `http://localhost:8501`.
+
 ## 📈 Key Features
 - **Batch Data Generation**: Efficiently inserts thousands of records using `executemany`.
 - **Advanced SQL**:
@@ -86,5 +98,6 @@ The system is built on a robust SQLite schema:
 - **Python 3.8+**
 - **SQLite3**
 - **Pandas & NumPy**
+- **Streamlit** (Web App Framework)
 - **Plotly & Ipywidgets**
 - **Faker**

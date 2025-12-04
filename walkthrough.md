@@ -45,8 +45,35 @@ Before running the project, ensure you have the following installed:
 
 1.  Download the `notebooks/interactive_dashboard.ipynb` file from this repository.
 2.  Go to [Google Colab](https://colab.research.google.com/).
-3.  Upload the notebook file.
+3.    Upload the notebook file.
 4.  The notebook is self-contained and will install necessary packages (like `faker` and `plotly`) in the first cell.
+
+### 2.1 Operations & CRUD (New Professional Feature)
+The dashboard now includes an **Operations** tab to demonstrate full database interaction (Create, Read, Update, Delete) and automation.
+
+1.  Click the **"🛠️ Operations (CRUD)"** tab.
+2.  **Place New Order**:
+    *   Select a Customer and Product.
+    *   Enter a Quantity.
+    *   Click **Submit Order**.
+3.  **Verify Automation (Trigger)**:
+    *   Observe the "Current Inventory Levels" table below.
+    *   Note that the `StockLevel` for the selected product automatically decreases when an order is placed.
+    *   This demonstrates **SQL Triggers** and **Transaction Management** in action.
+
+### Option C: Streamlit Web App (Professional Experience)
+
+This project includes a standalone web application for the best interactive experience.
+
+1.  **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+2.  **Run the App**:
+    ```bash
+    streamlit run streamlit_app.py
+    ```
+3.  **Access**: The app will open in your browser (typically `http://localhost:8501`).
 
 ## 3. Running the Dashboard
 
@@ -85,7 +112,8 @@ To verify the project is working correctly:
 
 ## 6. Project Structure
 
--   `notebooks/interactive_dashboard.ipynb`: The core application logic.
+-   `streamlit_app.py`: The main Streamlit web application.
+-   `notebooks/interactive_dashboard.ipynb`: The core application logic (notebook version).
 -   `sql/schema.sql`: Defines the 5-table relational database schema.
 -   `sql/queries.sql`: Contains the advanced SQL queries used for analysis.
 -   `requirements.txt`: List of Python dependencies.
